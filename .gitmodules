@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vim-terraform"]
 	path = vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule "vim/taboo.vim"]
+	path = vim/taboo.vim
+	url = /home/jeff/.vim/bundle/taboo.vim/
