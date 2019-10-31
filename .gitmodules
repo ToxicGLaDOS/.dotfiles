@@ -19,3 +19,6 @@
 [submodule "vim/taboo.vim"]
 	path = vim/taboo.vim
 	url = /home/jeff/.vim/bundle/taboo.vim/
+[submodule "vim/bundle/taboo.vim"]
+	path = vim/bundle/taboo.vim
+	url = git@github.com:gcmt/taboo.vim.git
