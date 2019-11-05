@@ -30,18 +30,18 @@ font pango:monospace 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xterm
 
 # start chromium browser
-bindsym $mod+b exec chromium-browser
+bindsym $mod+b exec chromium
 
-# start slack
-bindsym $mod+Shift+s exec slack
+# start weechat
+bindsym $mod+Shift+s exec xterm -hold -e weechat
 
 # media keys
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ 
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
-bindsym XF86AudioMute exec amixer -D pulse sset Master toggle 
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ 
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -108,7 +108,7 @@ bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace number 5 "5: steam"
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -130,11 +130,11 @@ bindsym $mod+Shift+0 move container to workspace 10
 # set workspace icons
 
 # auto open for workspaces
-assign [class="Slack"] 10
+assign [class="Weechat"] 10
 assign [class="Steam"] 5
 
 # auto open stuff on start
-exec slack
+exec xterm -hold -e weechat
 exec steam
 
 # reload the configuration file
@@ -143,6 +143,13 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Disable window titlebars
+for_window [class=".*"] border pixel 0
+
+# Configure gaps
+gaps inner 6
+gaps outer 6
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
