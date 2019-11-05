@@ -1,0 +1,8 @@
+*.swp
+.gitignore
+.ignore
+.git
+.gitmodules
+setup.sh
+LICENSE
+README.md
