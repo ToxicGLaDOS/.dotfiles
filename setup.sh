@@ -3,14 +3,14 @@ set -x
 script_dir=$(realpath $(dirname "$0"))
 cd $script_dir
 
-home_dir="$HOME/test"
+home_dir="$script_dir/test"
 
-top_levels=$(find . | grep -vFf .ignore)
+files=$(find . ! -path . | grep -vFf .ignore)
 
-for top_level in $top_levels; do     
-    #if [ -f "$home_dir/$top_level" ]; then
-    #    rm $home_dir/$top_level
-    #fi
-    ln -s $script_dir/$top_level  $home_dir/$top_level/
+for file in $files; do
+    if [ -f "$home_dir/$file" ] || [ -d "$home_dir/$file" ]; then
+        rm -r $home_dir/$file
+    fi
+    ln -s $script_dir/$file  $home_dir/$file
 done
 
