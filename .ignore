@@ -6,8 +6,5 @@
 setup.sh
 LICENSE
 README.md
-.vim
-.config
 test
-.bash_aliases
-.bashrc
+backup
