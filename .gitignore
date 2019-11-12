@@ -10,4 +10,4 @@ backup/
 !.config/i3blocks
 .runelite/*
 !.runelite/settings.properties
-
+.vim/sessions/
