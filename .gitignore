@@ -1,0 +1,13 @@
+# Vim swap files
+*.swp
+
+# Backup files from setup.sh
+backup/
+
+# Dot files we don't want to version control
+.config/*
+!.config/i3
+!.config/i3blocks
+.runelite/*
+!.runelite/settings.properties
+
