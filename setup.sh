@@ -17,6 +17,10 @@ else
     echo "Force mode is off. Use flag '-f' to actually make changes"
 fi
 
+if [ -d $backup_dir ]; then
+    rm -r $backup_dir
+fi
+
 if [ ! -d $backup_dir ]; then
     mkdir $backup_dir
 fi
