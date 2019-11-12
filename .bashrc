@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\e[0m\e[1;32m\]\u\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;35m\] $(git branch 2>/dev/null | grep "^*" | colrm 1 2)\[\e[0m\e[1;37m\]\$\[\e[0m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -126,20 +126,9 @@ popd()
   #dirs
 }
 
-
-
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
-
-
+alias cd='pushd'
+alias back='popd'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -155,8 +144,3 @@ fi
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
-
-
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"

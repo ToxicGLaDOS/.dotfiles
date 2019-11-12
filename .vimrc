@@ -4,3 +4,5 @@ syntax on
 filetype plugin indent on
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 colorscheme jeff
+" Allows sessions to maintain tab names
+set sessionoptions+=tabpages,globals
