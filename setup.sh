@@ -4,7 +4,7 @@ script_dir=$(realpath $(dirname "$0"))
 cd $script_dir
 
 backup_dir="$script_dir/backup"
-home_dir="$script_dir/test"
+home_dir="$HOME"
 
 paths=$(find . ! -path . | grep -vFf .ignore | sort)
 
