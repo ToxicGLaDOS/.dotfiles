@@ -24,9 +24,11 @@ os.makedirs(backup_dir, exist_ok=True)
 
 for dir_name, sub_dir_list, file_list in os.walk(manager_base_dir):
     # Don't navigate through the ignored directories
-    for index, sub_dir in enumerate(sub_dir_list):
+    # We call list(sub_dir_list) because it makes a copy
+    # and we don't want to delete entries while iterating through
+    for sub_dir in list(sub_dir_list):
         if sub_dir in IGNORED_FILES:
-            del sub_dir_list[index]
+            sub_dir_list.remove(sub_dir)
 
     for managed_file_name in file_list:
         if managed_file_name not in IGNORED_FILES:
