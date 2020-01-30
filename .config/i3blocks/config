@@ -6,7 +6,7 @@ command=date
 interval=1 
 
 [cpu]
-command=grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print "CPU usage: " usage "%"}'
+command=~/.config/i3blocks/cpu.sh
 interval=1
 
 [memory]
