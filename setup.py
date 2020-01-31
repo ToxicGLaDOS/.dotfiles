@@ -46,7 +46,10 @@ for dir_name, sub_dir_list, file_list in os.walk(manager_base_dir):
                     os.makedirs(backup_leaf_directory_path)
 
                 print(f"Copying {absolute_home_file_path} to {backup_file_path}")
-                shutil.copy(absolute_home_file_path, backup_file_path)
+                try:
+                    shutil.copy(absolute_home_file_path, backup_file_path)
+                except shutil.SameFileError:
+                    pass
 
                 print(f"Deleting file {absolute_home_file_path}")
                 os.remove(absolute_home_file_path)
