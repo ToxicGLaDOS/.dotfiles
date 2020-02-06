@@ -5,11 +5,11 @@ make_strikethrough(){
 
 }
 
-percent=$(amixer -D pulse sget Master | awk -F"[][]" '{print $2}' | tail -n 1);
+percent=$(amixer sget Master | awk -F"[][]" '{print $2}' | tail -n 1);
 
 text="Volume:${percent}"
 
-status=$(amixer -D pulse sget Master | awk -F"[][]" '{print $4}' | tail -n 1);
+status=$(amixer sget Master | awk -F"[][]" '{print $4}' | tail -n 1);
 if [ $status == off ]; then
         echo $(make_strikethrough $text);
 else
