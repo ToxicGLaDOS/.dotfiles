@@ -3,3 +3,4 @@
 
 # Backup files from setup.sh
 backup/
+.config/fish/fundle
