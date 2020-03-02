@@ -40,3 +40,13 @@ fundle plugin 'sentriz/fish-pipenv'
 
 
 fundle init
+
+
+# Start x and compton
+if status is-login
+    if test -z "$DISPLAY"
+        startx
+        feh --bg-scale ~/background.jpeg
+        compton &
+    end
+end
