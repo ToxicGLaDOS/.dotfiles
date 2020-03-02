@@ -1,6 +1,1 @@
-# Vim swap files
-*.swp
-
-# Backup files from setup.sh
-backup/
-.config/fish/fundle
+*
