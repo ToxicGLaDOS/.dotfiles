@@ -24,6 +24,14 @@ function fish_prompt
     echo -n ">"
 end
 
+function set_title
+    set -gx TITLE $argv[1]
+    function fish_title
+        echo $TITLE
+    end
+end
+
+
 # Alias definitions.
 alias back 'prevd'
 alias forth 'nextd'
