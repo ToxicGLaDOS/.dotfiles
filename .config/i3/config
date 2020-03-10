@@ -147,8 +147,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Disable window titlebars
-for_window [class=".*"] border pixel 0
+# Disable window titlebars and set border
+for_window [class=".*"] border pixel 3
+
+#default_border normal
 
 # Configure gaps
 gaps inner 6
@@ -196,8 +198,8 @@ bar {
     urgent_workspace #CE4045 #CE4045 #FFFFFF
   }
 }
-
-client.focused #db81ff #db81ff #2a1830 #ff0000
-client.focused_inactive #ffec81 #ffec81 #3b2f1d #ff0000
-client.unfocused #a5ff81 #a5ff81 #2d3018 #ff0000
-client.urgent #ff81a5 #ff81a5 #e7d8b1 #DCCD69
+# class                 border  backgr. text    indicator child_border
+client.focused          #db81ff #db81ff #2a1830 #db81ff   #db81ff
+client.focused_inactive #a5ff81 #ffec81 #3b2f1d #a5ff81   #a5ff81
+client.unfocused        #a5ff81 #a5ff81 #2d3018 #a5ff81   #a5ff81
+client.urgent           #ff81a5 #ff81a5 #e7d8b1 #ff81a5   #ff81a5
